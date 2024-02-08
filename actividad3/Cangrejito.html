@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Cangrejito</title>
+  <style>
+
+body 
+    {
+        background-color: #FFF1FA;
+        text-align: center;
+    }
+      canvas{
+          /*border: 3px solid red;*/
+          background-color: #D0E8FB;
+      }
+  </style>
+
+<script>
+    var x = 20;
+    var dx = 7; //velocidad 
+    var x2 = 40;
+    var dx2 = 7;
+    var x3 = 60;
+    var dx3 = 7;
+    var x4 =80;
+    var dx4 =7;
+    var x5 =100;
+    var dx5 =7;
+    var x6 = 120;
+    var dx6 = 7;
+    var x7 = 140;
+    var dx7 = 7;
+    var x8 =160;
+    var dx8 =7;
+
+    var x9 =220;
+    var dx9 =7;
+    var x10 = 260;
+    var dx10 = 7;
+    var x11 = 280;
+    var dx11 = 7;
+    var x12 =300;
+    var dx12 =7;
+    var x13 =320;
+    var dx13 =7;
+    var x14 = 340;
+    var dx14 = 7;
+    var x15 = 360;
+    var dx15 = 7;
+
+
+    function animate(){
+        requestAnimationFrame(animate);
+        console.log('animando');
+
+        var canvas = document.getElementById("micanvas");
+        var context = canvas.getContext("2d");
+
+        context.clearRect(0,0,innerWidth, innerHeight); //borra todo lo que esta en el canvas
+        
+        //todos los cuadritos
+        context.fillStyle= "#D64933";
+        context.fillRect(x, 400,20,60); //fillrect(x,y, width, height)  
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x5, 400,20,60);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x2, 440, 20, 20);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x2, 460, 60, 20);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x4, 440, 20, 20);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x3, 480, 20, 40);
+        
+        context.fillStyle= "#D64933";
+        context.fillRect(x4, 500, 60, 20);
+
+        //cuerpo
+        context.fillStyle= "#D64933";
+        context.fillRect(x7, 480, 120, 80);
+
+        context.fillStyle= "black";
+        context.fillRect(x8, 460, 20, 20);
+
+        context.fillStyle= "black";
+        context.fillRect(x9, 460, 20, 20);
+
+        //brazo derecho
+        context.fillStyle= "#D64933";
+        context.fillRect(x11,400,20,60); //fillrect(x,y, width, height)
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x15,400,20,60);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x12, 440, 20, 20);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x12, 460, 60, 20);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x14, 440, 20, 20);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x13, 480, 20, 40);
+        
+        context.fillStyle= "#D64933";
+        context.fillRect(x10, 500, 60, 20);
+
+        //patas
+        context.fillStyle= "#D64933";
+        context.fillRect(x4, 540, 240, 20);//aqui esta 
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x4, 560, 20, 40);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x6, 560, 20, 40);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x8, 560, 20, 40);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x9, 560, 20, 40);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x10, 560, 20, 40);
+
+        context.fillStyle= "#D64933";
+        context.fillRect(x12, 560, 20, 40);//230
+
+        //arena
+        context.fillStyle= "#EAC99C";
+        context.fillRect(0,600,1200,500);
+        
+        if (x > 800 || x < 0 )
+        {
+            dx = -dx; //cuando llega al limite se cambia al otro lado 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx2 = -dx2; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx3 = -dx3; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx4 = -dx4; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx5 = -dx5; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx6 = -dx6; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx7 = -dx7; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx8 = -dx8; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx9 = -dx9; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx10 = -dx10; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx11 = -dx11; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx12 = -dx12; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx13 = -dx13; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx14 = -dx14; 
+        }
+        if (x > 800 || x < 0 )
+        {
+            dx15 = -dx15; 
+        }
+
+        x += dx;
+        x2 += dx2;
+        x3 += dx3;
+        x4 += dx4;
+        x5 += dx5;
+        x6 += dx6;
+        x7 += dx7;
+        x8 += dx8;
+        x9 += dx9;
+        x10 += dx10;
+        x11 += dx11;
+        x12 += dx12;
+        x13 += dx13;
+        x14 += dx14;
+        x15 += dx15;
+      }
+      animate();
+  </script>
+
+  </head>
+<body>
+   <canvas id="micanvas" width="1200" height="1000"></canvas>
+</body>
+</html>
+
