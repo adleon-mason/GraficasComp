@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vocales</title>
+
+    <h1>Vocales</h>
+    <h2>Teclea cualquier vocal</h2>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@0;1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
+    body 
+    {
+        background-color: #D0E8FB;
+        text-align: center; /* centrar todo */
+    }
+    h1
+    {
+        font-size: 50px;
+        font-family: 'Averia Serif Libre', serif;
+    }
+
+    h2
+    {
+        font-size: 20px;
+        font-family:'Montserrat Alternates', serif;
+    }
+    canvas 
+    {
+        background-color: #D0E8FB;
+    }
+</style>
+
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src = "keycode2.js"></script> 
+
+    <script>
+    window.onload = function () {
+      //Our code here...
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+
+    var imagen = new Image();
+    imagen.src = "img/foto.jpeg";
+    var imagen1 = new Image();
+    imagen1.src = "img/foto4.jpeg";
+    var imagen2 = new Image();
+    imagen2.src = "img/foto5.jpeg";
+    var imagen3 = new Image();
+    imagen3.src = "img/foto6.jpeg";
+    var imagen4 = new Image();
+    imagen4.src = "img/foto7.jpeg";
+    var imagen5 = new Image();
+    imagen5.src = "img/foto8.jpeg";
+
+    imagen.onload=function()
+    {
+        context.drawImage(imagen, 230,100,350,350);
+    };
+
+    context.fillStyle= 'black';//cambia color de letra a tbodo
+
+
+    function onKeyboardEvent (event) 
+        {
+        switch (event.keyCode) 
+        {
+        case keyCode.A: //se pone la clave del java script
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen1, 230, 130, 350, 450); 
+          context.font= '40pt Averia Serif Libre';
+          context.fillText('A', 400, 100)
+          break;
+
+          case keyCode.E: //se pone la clave del java script
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen2, 230, 130, 350, 450); 
+          context.font= '40pt Averia Serif Libre';
+          context.fillText('E', 400, 100)
+          break;
+
+          case keyCode.I: //se pone la clave del java script
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen3, 230, 130, 350, 450); 
+          context.font= '40pt Averia Serif Libre';
+          context.fillText('I', 400, 100)
+          break;
+
+          case keyCode.O: //se pone la clave del java script
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen4, 200, 130, 450, 450); 
+          context.font= '40pt Averia Serif Libre';
+          context.fillText('O', 400, 100)
+          break;
+
+          case keyCode.U: //se pone la clave del java script
+          context.clearRect(0,0, innerWidth, innerHeight);
+          context.drawImage(imagen5, 200, 130, 450, 350); 
+          context.font= '40pt Averia Serif Libre';
+          context.fillText('U', 400, 100);
+          break;
+            default:
+        }
+    }
+    window.addEventListener('keydown', onKeyboardEvent, false);
+
+    };
+    </script>
+  </body>
+</html>
