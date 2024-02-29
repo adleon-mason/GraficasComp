@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rotate CD</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@0;1&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
+
+        body 
+    {
+        background-color: white;
+        text-align: center; /* centrar todo */
+    }
+      canvas{
+        background-color: white;
+      }
+
+      h1
+    {
+        font-size: 50px;
+        font-family: 'Averia Serif Libre', serif;
+    }
+    h2 {
+        color:grey;
+        font-variant: small-caps;
+        font-family: 'Roboto mono', serif;
+    }
+    </style>
+  </head>
+  <body>
+    <h1> Play the song</h1> 
+   
+    <h2>  move mouse on canvas element. </h2>
+
+
+    <canvas id="canvas" width="600" height="600"></canvas>
+    
+    <script src="utils.js"></script>
+    <script src="arrow.js"></script>
+    <script>
+      
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas),
+          pelota = new Image();
+          pelota.src="gatito.png";
+        
+      (function drawFrame () {
+        window.requestAnimationFrame(drawFrame, canvas);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.save();
+          
+        context.translate(300,300);
+        var dx=mouse.x-200,
+        dy=mouse.y-200;
+        var radianes=Math.atan2(dy,dx);
+        console.log(radianes);
+        context.rotate(radianes);
+        context.drawImage(pelota,-pelota.width/2,-pelota.height/2);
+        context.restore();
+      }());
+    };
+    </script>
+
+  </body>
+</html>
