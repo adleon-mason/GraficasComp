@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Estrellita </title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+         text-align: center;
+         background-size: cover;
+         background-position: center;
+         background-color: #FFF0F9;
+      }
+      canvas{
+        background-image: url('Imagen/Fondo.jpeg');
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <br>
+    <br>
+
+    <canvas id="canvas" width="1000" height="600"></canvas>
+    <script src="utils.js"></script>
+    <script>
+      window.onload = function () {
+        var canvas = document.getElementById('canvas'),
+            context = canvas.getContext('2d'),
+            angle = 0, 
+            centerScale = 1,
+            range = 0.5,
+            escalaX = 0.5,
+            escalaY = 0.5,
+            speed = 0.05,
+            posicionX = 0,
+            posicionY = 0,
+            centerY = 0,
+            rangeY = 100,
+            speedX= 2,
+            star = new Image();
+            star.src = "Imagen/star.png";
+            
+            
+          
+        (function drawFrame () {
+          window.requestAnimationFrame(drawFrame, canvas);
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
+          context.save();
+
+          context.translate(0, 200);
+          escalaX = escalaY = centerScale + Math.sin(angle) * range;
+          posicionX += speedX;
+          posicionY = centerY + Math.sin(angle) * rangeY;
+          angle += speed;
+          context.drawImage(star, posicionX, posicionY, star.width/2*escalaX, star.height/2*escalaY);
+          context.restore();
+
+          if (posicionX > 900 || posicionX < 0)
+          {
+            speedX = - speedX;
+          }
+          posicionX += speedX;
+        }());
+      };
+      </script>
+  </body>
+</html>
