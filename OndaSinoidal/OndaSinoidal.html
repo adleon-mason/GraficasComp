@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>AnimacionOnda</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@0;1&display=swap');
+
+        body {
+            text-align: center;
+            background-image: url('fondo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-color: #f6f6f6;
+    
+        }
+
+        h1 {
+            font-family: "Averia Serif Libre";
+            font-weight: 600;
+            font-style: 50px;
+            color: #437FAD;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <h1> Animación con onda sinoidal</h1>
+    <canvas id="canvas" width="800" height="700"></canvas>
+    <aside></aside>
+
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById('canvas'),
+                context = canvas.getContext('2d'),
+                centerX = canvas.width / 2,
+                centerY = canvas.height / 2,
+                ball = {
+                    x: 0,
+                    y: 0,
+                    scaleX: 1,
+                    scaleY: 1,
+                    image: new Image(),
+                    draw: function (context) {
+                        context.drawImage(this.image, this.x - (this.image.width / 2), this.y - (this.image.height / 2), this.image.width * this.scaleX, this.image.height * this.scaleY);
+                    }
+                },
+                angleX = 0,
+                angleY = 0,
+                range = 50,
+                xspeed = 0.07,
+                yspeed = 0.15;
+            speed = 0.1;
+
+            ball.image.src = 'monito.png';
+
+            (function drawFrame() {
+                window.requestAnimationFrame(drawFrame, canvas);
+
+                context.fillStyle = "ffffff00"; // Color blanco
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                context.clearRect(0,0, innerWidth,innerHeight);
+
+                ball.x = canvas.width / 2 + Math.sin(angleX) * range;
+                ball.y = canvas.height / 2 + Math.sin(angleY) * range;
+                ball.scaleX = ball.scaleY = 1 + Math.sin(angleX) * 0.5;
+                //ball.scale = 1 + Math.sin(angleX) * 0.5;
+
+                angleX += xspeed;
+                angleY += yspeed;
+
+                ball.draw(context);
+
+                //ball.draw();
+            }());
+        };
+    </script>
+</body>
+
+</html>
