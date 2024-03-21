@@ -1,0 +1,377 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Practica color</title>
+    
+    <h1>Mundito</h1> <!--titulo q se ve-->
+    
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@0;1&display=swap');
+
+      body{
+        background-color: #FFF0F9;
+        text-align: center;
+      }
+      h1{
+        font-family: 'Averia Serif Libre', serif;
+        font-size: 70px;
+        color:#F59E46;
+      }
+      canvas{
+        background-color: #123B6C;
+      }
+    </style>
+
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <script>
+    window.onload = function () {
+      //Our code here...
+      var canvas = document.getElementById('canvas'),
+          context = canvas.getContext('2d');
+          
+          //casa abajo
+          context.save();
+          context.fillStyle="white";
+          context.strokeStyle="white";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(150,352,500,400);
+          context.strokeRect(150,352,500,400);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+           //hongo casa
+           context.save();
+          context.fillStyle="#FFD365";
+          context.beginPath();
+          context.moveTo(125,325);
+          context.quadraticCurveTo(225,320,300,250); 
+          context.quadraticCurveTo(400,140,500,250); 
+          context.quadraticCurveTo(575,320,675,325); 
+          context.lineTo(675,360);
+          context.lineTo(125,360);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circuloChica
+          context.save();
+          context.fillStyle="#FCDFE8";
+          context.strokeStyle="#FCDFE8";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,280,70,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulo flor
+          context.save();
+          context.fillStyle="#F59E46";
+          context.strokeStyle="#F59E46";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,250,30,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulo flor2
+          context.save();
+          context.fillStyle="#F59E46";
+          context.strokeStyle="#F59E46";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,310,30,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulo flor3
+          context.save();
+          context.fillStyle="#F59E46";
+          context.strokeStyle="#F59E46";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(370,280,30,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulo flor4
+          context.save();
+          context.fillStyle="#F59E46";
+          context.strokeStyle="#F59E46";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(430,280,30,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulochica
+          context.save();
+          context.fillStyle="#FCDFE8";
+          context.strokeStyle="#FCDFE8";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,280,15,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+          
+          //ventana1
+          context.save();
+          var gradient = context.createLinearGradient(200, 500, 300, 600);
+          gradient.addColorStop(1, "#FFE8FA"); // Primer color, al inicio del gradiente
+          gradient.addColorStop(0, "#FFD365"); // Segundo color, al final del gradiente
+
+          context.fillStyle = gradient;
+
+          //context.fillStyle="#FFE8FA";
+          //context.strokeStyle="#FFD365";
+          context.strokeStyle = "#FFD365";
+          context.lineWidth=7;
+          context.beginPath();
+          context.fillRect(200,500,100,100);
+          context.strokeRect(200,500,100,100);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //ventana2
+          /*context.save();
+          context.fillStyle="#FFE8FA";
+          context.strokeStyle="#FFD365";
+          context.lineWidth=7;
+          context.beginPath();
+          context.fillRect(500,500,100,100);
+          context.strokeRect(500,500,100,100);
+          context.closePath();
+          context.fill();
+          context.restore();*/
+
+
+
+
+
+
+        //nuevo ventana2
+
+        context.save();
+        // Crea un gradiente lineal
+        var gradient = context.createLinearGradient(500, 500, 600, 600); // Ajusta las coordenadas segun tu preferencia
+        gradient.addColorStop(0, "#FFE8FA"); // Primer color, al inicio del gradiente
+        gradient.addColorStop(1, "#FFD365"); // Segundo color, al final del gradiente
+
+        // Aplica el gradiente como estilo de relleno
+        context.fillStyle = gradient;
+
+        context.strokeStyle = "#FFD365";
+        context.lineWidth = 7;
+        context.beginPath();
+        context.fillRect(500, 500, 100, 100);
+        context.strokeRect(500, 500, 100, 100);
+        context.closePath();
+        context.fill();
+
+        context.restore();
+
+
+
+
+
+          //puerta
+          context.save();
+          context.fillStyle="#F59E46";
+          context.strokeStyle="#F59E46";
+          context.lineWidth=12;
+          context.beginPath();
+          context.fillRect(325,460,150,260);
+          context.strokeRect(325,460,150,260);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //puertaArriba
+          context.save();
+          context.fillStyle="#FFE8FA";
+          context.strokeStyle="#FFD365";
+          context.lineWidth=4;
+          context.beginPath();
+          context.fillRect(340,475,120,235);
+          context.strokeRect(340,475,120,235);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //puerta
+          context.save();
+          context.fillStyle="#8BCBD6";
+          context.strokeStyle="#8BCBD6";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(435,600,8,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //flor
+          context.save();
+          context.fillStyle="#8BCBD6";
+          context.strokeStyle="#8BCBD6";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,410,8,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //flor
+          context.save();
+          context.fillStyle="#8BCBD6";
+          context.strokeStyle="#8BCBD6";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,430,8,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //flor
+          context.save();
+          context.fillStyle="#8BCBD6";
+          context.strokeStyle="#8BCBD6";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(410,421,8,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //flor
+          context.save();
+          context.fillStyle="#8BCBD6";
+          context.strokeStyle="#8BCBD6";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(390,421,8,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //flor2
+          context.save();
+          context.fillStyle="#4C8F9B";
+          context.strokeStyle="#4C8F9B";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(400,421,5,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //estrella 
+          context.save();
+          context.fillStyle="#FFD365";
+          context.strokeStyle="#FFD365";
+          context.lineWidth=4;
+          context.beginPath();
+          context.moveTo(650,200);
+          context.lineTo(700, 200);
+          context.lineTo(675,250);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+
+          //estrella2 
+          context.save();
+          context.fillStyle="#FFD365";
+          context.strokeStyle="#FFD365";
+          context.lineWidth=4;
+          context.beginPath();
+          context.moveTo(650, 225);
+          context.lineTo(700, 225);
+          context.lineTo(675,175);
+          context.closePath();
+          context.stroke();
+          context.fill();
+          context.restore();
+            
+
+         
+
+          //circulo luna
+
+          
+          context.save();
+          context.fillStyle="#FED16B";
+          context.strokeStyle="#FED16B";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(150,130,70,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //circulo blanco
+          context.save();
+          context.fillStyle="#123B6C";
+          //context.strokeStyle="1a1d1a";
+          context.lineWidth=2;
+          context.beginPath();
+          context.arc(180,130,50,0,2*Math.PI);//LOS ULTIMOS DOS SON LOS GRADOS Y CURVAS Y LOS PRIMEROS DOS SON LA POSICION Y EL DE EN MEDIO ES EL RADIO
+          context.closePath();
+          //context.stroke();
+          context.closePath();
+          context.fill();
+          context.restore();
+
+          //pasto
+          context.save();
+          context.fillStyle="#A6B94D";
+          context.strokeStyle="#A6B94D";
+          context.lineWidth=1;
+          context.beginPath();
+          context.fillRect(0,700,800,100);
+          context.strokeRect(0,700,800,100);
+          context.closePath();
+          context.fill();
+          context.restore();
+
+
+    };
+    </script>
+  </body>
+</html>
