@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing</title>
+    <link rel="stylesheet" href="style.css">
+	  <style>
+	@import url('https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@0;1&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+		  body{
+              background-color: #104874;
+			  text-align: center;
+			  width: 100%;
+		  }
+		   h1 {
+            font-family: 'Averia Serif Libre', serif;
+        font-size: 70px;
+        color: white;
+        	}
+            h2{
+        font-family: 'Averia Serif Libre', serif;;
+        font-size: 30px;
+        color:#A8D1F1;
+      }
+		  .container{
+			  margin: 3px auto;
+			  text-align: center;
+			  width:1000px;
+		  }
+		  button{
+			  width: 100px;
+			  height: 50px;
+			  margin:5px;
+		  }
+		  
+		  button:hover{
+			  opacity: 0.5;
+		  }
+		  #green{
+			  background-color: #8f8f2a;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  #red{
+			  background-color: #c84737;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  #orange{
+			  background-color: #ed8642;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;			  
+			color: white;
+		  }
+		  #pink{
+			  background-color: #db91a6;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  
+		  #blue{
+			  background-color: #6AB1E2;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+
+		  #yellow{
+			  background-color: #feba3d;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  
+		  
+		  #Grosor1{
+			  background-color: #525252;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  #Grosor2{
+			  background-color: #525252;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  #Grosor3{
+			  background-color: #525252;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		  
+		  #borrar{
+			  width: 330px;
+			  background-color: black;
+			  font-variant: small-caps;
+        	font-family: 18px'Roboto mono', serif;
+			  color: white;
+		  }
+		 
+	  </style>
+  </head>
+  <body>
+	<h1>Paint</h1>  
+    <h2>Haz clic en cualquier botón y empieza a dibujar</h2>  
+	  <div id="container">
+		<div class="colores">
+			<button id="red" type="button" value="#c84737">Rojo</button>
+			<button id="pink" type="button" value="#db91a6">Rosa</button>
+			<button id="orange" type="button" value="#ed8642">Naranja</button>
+			<button id="yellow" type="button" value="#feba3d">Amarillo</button>			
+			<button id="green" type="button" value="#8f8f2a">Verde</button>
+			<button id="blue" type="button" value="#6AB1E2">Azul</button>
+
+		</div>
+		<div class="grosor">
+			<button id="Grosor1" type="button" value="2">Delgada</button>
+			<button id="Grosor2" type="button" value="4">Gruesa</button>
+			<button id="Grosor3" type="button" value="6">Extra gruesa</button>
+		</div>
+		<div id="otros">
+			<button id="borrar" type="button" value="black">Borrar todo</button>
+		</div>
+
+		<canvas id="canvas" width="900" height="700"></canvas>
+		
+
+		<script src="utils.js"></script>
+		<script>
+		window.onload = function () {
+		  var canvas = document.getElementById('canvas'),
+			  context = canvas.getContext('2d'),
+			  mouse = utils.captureMouse(canvas);
+
+		  canvas.addEventListener('mousedown', function () {
+			context.beginPath();
+			context.moveTo(mouse.x, mouse.y);
+			canvas.addEventListener('mousemove', onMouseMove, false);
+		  }, false);
+
+		  canvas.addEventListener('mouseup', function () {
+			canvas.removeEventListener('mousemove', onMouseMove, false);
+		  }, false);
+
+		  function onMouseMove () {
+			context.lineTo(mouse.x, mouse.y);
+			context.stroke();
+		  }
+			
+			var colores=document.getElementsByClassName("colores")[0];
+			colores.addEventListener("click", function(event){
+				context.strokeStyle = event.target.value;
+			});
+			
+			var grosorButtons = document.querySelectorAll(".grosor button");
+			grosorButtons.forEach(function(button) {
+				button.addEventListener("click", function() {
+					var grosor = parseInt(this.value); 
+							context.lineWidth = grosor;
+				});
+			});
+			
+			var clearButton=document.getElementById("borrar");
+			clearButton.addEventListener("click", function(){
+				context.clearRect(0,0, canvas.width, canvas.height);
+			});
+			
+		};
+		</script>
+	</div>  
+  </body>
+</html>
